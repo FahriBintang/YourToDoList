@@ -4,7 +4,6 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  color: #333;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -37,6 +36,14 @@ input {
   font-size: 16px;
 }
 
+input.invalid {
+  border-color: red;
+}
+
+input.valid {
+  border-color: green;
+}
+
 button {
   padding: 10px 14px;
   border: none;
@@ -50,6 +57,13 @@ button {
 
 button:hover {
   background-color: #ff0000;
+}
+
+#errorMessage {
+  display: block;
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 ul {

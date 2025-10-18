@@ -1,14 +1,24 @@
+const form = document.getElementById("taskForm");
 const input = document.getElementById("taskInput");
-const addBtn = document.getElementById("addBtn");
+const errorMessage = document.getElementById("errorMessage");
 const list = document.getElementById("taskList");
 
-addBtn.addEventListener("click", function() {
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); 
+
   const value = input.value.trim();
 
   if (value === "") {
-    alert("Your data is empty!");
+    errorMessage.textContent = "Your data is empty!";
+    input.classList.remove("valid");
+    input.classList.add("invalid");
     return;
   }
+
+  errorMessage.textContent = "";
+  input.classList.remove("invalid");
+  input.classList.add("valid");
 
   const li = document.createElement("li");
 
@@ -46,4 +56,5 @@ addBtn.addEventListener("click", function() {
   list.append(li);
 
   input.value = "";
+  input.classList.remove("valid");
 });
